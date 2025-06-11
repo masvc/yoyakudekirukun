@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# フロントエンド（予約できるくん）
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 概要
 
-Currently, two official plugins are available:
+Vue.jsとTypeScriptを使用したモダンなフロントエンドアプリケーションです。
+ユーザーフレンドリーな予約インターフェースを提供します。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 技術スタック
 
-## Expanding the ESLint configuration
+- Vue.js
+- TypeScript
+- Tailwind CSS
+- Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 開発環境のセットアップ
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. 依存関係をインストール
+
+```bash
+cd frontend
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. 開発サーバーを起動
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+## プロジェクト構造
+
+- `src/`: ソースコード
+  - `components/`: Vueコンポーネント
+  - `views/`: ページコンポーネント
+  - `stores/`: 状態管理
+  - `types/`: TypeScript型定義
+- `public/`: 静的ファイル
+- `dist/`: ビルド成果物
+
+## 利用可能なコマンド
+
+- `npm run dev`: 開発サーバーを起動
+- `npm run build`: プロダクションビルドを作成
+- `npm run lint`: コードの静的解析を実行
+- `npm run format`: コードのフォーマットを実行
+
+## 開発ガイドライン
+
+- コンポーネントは機能単位で分割する
+- TypeScriptの型定義を適切に行う
+- Tailwind CSSのユーティリティクラスを活用する
+- コードレビューを必ず行う
