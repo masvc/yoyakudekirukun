@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Operator } from '../entities/operator.entity';
+import { Operator } from './operator.entity';
 
 export enum BookingStatus {
   PENDING = 'pending',
@@ -82,6 +82,18 @@ export class Booking {
 
   @Column({ type: 'text', nullable: true })
   requests: string;
+
+  @Column({ type: 'text', nullable: true })
+  cameraAngle?: string;
+
+  @Column({ type: 'text', nullable: true })
+  shootingStyle?: string;
+
+  @Column({ type: 'text', nullable: true })
+  focusSubject?: string;
+
+  @Column({ type: 'text', nullable: true })
+  specialRequests?: string; // JSON文字列として保存
 
   @ManyToOne(() => Operator, { nullable: true, eager: true })
   @JoinColumn()

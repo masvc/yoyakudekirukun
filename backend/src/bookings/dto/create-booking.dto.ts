@@ -36,4 +36,19 @@ export class CreateBookingDto {
   @IsOptional()
   @IsString()
   requests?: string;
+
+  @IsOptional()
+  @IsString()
+  cameraAngle?: string;
+
+  @IsOptional()
+  @IsString()
+  shootingStyle?: string;
+
+  @IsOptional()
+  @IsString()
+  focusSubject?: string;
+
+  @IsOptional()
+  specialRequests?: string[];
 }

@@ -15,7 +15,15 @@ export class BookingsService {
   ) {}
 
   async create(createBookingDto: CreateBookingDto): Promise<Booking> {
-    const booking = this.bookingRepository.create(createBookingDto);
+    const bookingData = {
+      ...createBookingDto,
+      // specialRequestsを文字列に変換
+      specialRequests: createBookingDto.specialRequests 
+        ? JSON.stringify(createBookingDto.specialRequests) 
+        : undefined
+    };
+    
+    const booking = this.bookingRepository.create(bookingData);
     return this.bookingRepository.save(booking);
   }
 
